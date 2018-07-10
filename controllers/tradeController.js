@@ -7,7 +7,7 @@ var db = require('../modals/orderQueries');
     var name = '';
     var foodItem = '';
     var qty = '';
-    console.log("req body", req)
+    console.log("req body", req.body)
     // if (req.body.result.parameters.name) {
     //     name = req.body.result.parameters.name;
     // }
