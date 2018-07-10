@@ -25,12 +25,11 @@ const cn = {
     // host: 'postgres://karfbvsappvblx:b283af7c191ee47bcad832397a67147ac97f84677ac4172bf00d7e1935c23302@ec2-107-20-133-82.compute-1.amazonaws.com:5432/d4uk4guv9810pl',
     // host: 'localhost',    //server name or IP addres
     port: 5432,           //server port number
-    database: 'ddvupf0ie4qkk2',
+    database: 'd39d5g00p3b6rl',
     // database: 'foodorder',       //database name
-    user: 'fkwpfbihnwfcfk',     //user name
+    user: 'bmqhorwmvhpywm',     //user name
     // user: 'postgres',     //user name
-    password: '
-    e25bf765fe9f5b74ae89acfdd95bae41933a062f0458f824c579147fd4fafaae', //user password
+    password: '0fb68e9caa2eb4daf53687fab1ff378d9d1d5b04fefd30b66753f825fa6bb702', //user password
     // password: 'password', //user password
     ssl: false           //use SSL
     // poolSize: 10,         //maximum size of the connection pool
