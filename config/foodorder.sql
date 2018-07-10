@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS foodorder;
-CREATE DATABASE foodorder;
+DROP DATABASE IF EXISTS info;
+CREATE DATABASE info;
 
 \c foodorder;
 
@@ -7,9 +7,7 @@ CREATE SEQUENCE id_seq;
  
 CREATE TABLE USER_PROFILE (
     USER_ID integer NOT NULL DEFAULT nextval('id_seq'),
-    USER_NAME VARCHAR(50),
-    QTY INTEGER,
-    ITEM VARCHAR(50)
+    USER_NAME VARCHAR(50)   
 );
  
 ALTER SEQUENCE id_seq

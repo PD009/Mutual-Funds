@@ -4,9 +4,9 @@ var db = require('../config/dbconnection');
 //Create
 
 function createEntry(req,res,next){
-    var reqObj = req.body.result.parameters; 
+    var reqObj = req.body.queryResult.parameters;
     console.log(reqObj);
-    db.one("INSERT INTO user_profile values(DEFAULT,$1,$2,$3)",[reqObj.name,reqObj.number,reqObj.items])
+    db.one("INSERT INTO user_profile values(DEFAULT,$1)",[reqObj.username])
     .then(function(result){
         var message = {status:"success",
                        message:"record inserted",

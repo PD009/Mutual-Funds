@@ -4,10 +4,10 @@ var db = require('../modals/orderQueries');
  getName = function(req,res,next){
     console.log("inside controller get name");
     // req = req.body.result.parameters;
-    var name = '';
+    var name = req.body.queryResult.parameters.username;
     var foodItem = '';
     var qty = '';
-    console.log("req body", req.body)
+    console.log("req body", req.body);
     // if (req.body.result.parameters.name) {
     //     name = req.body.result.parameters.name;
     // }
@@ -17,7 +17,7 @@ var db = require('../modals/orderQueries');
     // if (req.body.result.parameters.number) {
     //     qty = req.body.result.parameters.number;
     // }
-    //     db.createEntry(req,res,next);
+        db.createEntry(req,res,next);
         var message = "Hi Would you like to order anything else?";
         return res.json({fulfillmentText : message});
     // res.send(res);
