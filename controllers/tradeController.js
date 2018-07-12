@@ -2,7 +2,7 @@ var express = require('express');
 var db = require('../modals/orderQueries');
 
  getName = function(req,res,next){
-    console.log("inside controller get name");
+    //console.log("inside controller get name");
     // req = req.body.result.parameters;
     var type_asset = req.body.queryResult.parameters.typeasset;
     var user_mobno = req.body.queryResult.parameters.mobileno;
