@@ -14,25 +14,28 @@ mobile_no       int(10)    PRIMARY KEY,  --users mobile number
 )INHERITS (assets),
 INHERITS(liabilities);*/
 
-CREATE SEQUENCE id_seq1;
+--CREATE SEQUENCE id_seq1;
 
 CREATE TABLE investment_profile_assets (
 mobileno      int    PRIMARY KEY,  --users mobile number
-user_id integer NOT NULL DEFAULT nextval('id_seq1'),
+--user_id integer NOT NULL DEFAULT nextval('id_seq1'),
 interest_rate         float(2),  --in percentage
 amount                  int,   --approx net worth
 asset_investment_date            date,  --date of the investment (MDY format)
 asset_maturity_date          date,  --date of the investment maturity (MDY format)
+typeasset            varchar(50), --types of asset investment
 time_period             timestamp,  --time period of the investment only years,months
 time_recorded           timestamp  --time when it was entered in the database
-)INHERITS (assets_types_master);
 
-ALTER SEQUENCE id_seq1
-owned BY investment_profile_assets.mobile_no;
-
-CREATE TABLE assets_types_master(
-typeasset            varchar(50) --types of asset investment
 );
+--INHERITS (assets_types_master);
+
+--ALTER SEQUENCE id_seq1
+--owned BY investment_profile_assets.mobile_no;
+
+/*CREATE TABLE assets_types_master(
+typeasset            varchar(50) --types of asset investment
+);*/
 
 
 CREATE TABLE investment_profile_liabilities (

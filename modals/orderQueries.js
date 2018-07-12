@@ -6,22 +6,11 @@ var db = require('../config/dbconnection');
 function createEntry(req,res,next){
     var reqObj = req.body.queryResult.parameters;
     console.log(reqObj);
-db.one("INSERT INTO assets_types_master values(DEFAULT,$1)",[reqObj.typeasset])    
-    .then(function(result){
-        var message = {status:"success",
-                       message:"record inserted",
-                       id:result}
-        console.log("query successful : ", message);
-        // return res.status(200)
-        //    .json({status:"success",
-        //          message:"record inserted",
-        //          id:result})
-    }).catch(function(error){
-        console.error('SQL error: ', error);
-    });
-
-
-db.one("INSERT INTO investment_profile_assets values(DEFAULT,$1,$2,$3,$4,$5,$6)",[reqObj.mobileno,reqObj.interest_rate,reqObj.amount,reqObj.asset_investment_date,reqObj.asset_maturity_date,reqObj.time_period])
+db.one("INSERT INTO investment_profile_assets values(DEFAULT,$1,$2,$3,$4,$5,$6,$7)",[reqObj.mobileno,
+    reqObj.interest_rate,
+    reqObj.amount,
+    reqObj.asset_investment_date,
+    reqObj.asset_maturity_date,reqObj.typeasset,reqObj.time_period])
     .then(function(result){
         var message = {status:"success",
                        message:"record inserted",
