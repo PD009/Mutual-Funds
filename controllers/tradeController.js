@@ -4,6 +4,7 @@ var db = require('../modals/orderQueries');
  getName = function(req,res,next){
     console.log("inside controller get name");
     // req = req.body.result.parameters;
+    var type_asset = req.body.queryResult.parameters.typeasset;
     var user_mobno = req.body.queryResult.parameters.mobileno;
     var interest_rate = req.body.queryResult.parameters.interest_rate;
     var amount=req.body.queryResult.parameters.amount;
