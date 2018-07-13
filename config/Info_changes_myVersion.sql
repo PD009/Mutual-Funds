@@ -17,16 +17,15 @@ INHERITS(liabilities);*/
 --CREATE SEQUENCE id_seq1;
 
 CREATE TABLE investment_profile_assets (
-mobileno      int    PRIMARY KEY,  --users mobile number
+mobileno      varchar(10)  PRIMARY KEY,  --users mobile number
 --user_id integer NOT NULL DEFAULT nextval('id_seq1'),
 interest_rate         float(2),  --in percentage
-amount                  int,   --approx net worth
-asset_investment_date            date,  --date of the investment (MDY format)
+amount                  varchar(20),   --approx net worth
+asset_investment_date        date,  --date of the investment (MDY format)
 asset_maturity_date          date,  --date of the investment maturity (MDY format)
 typeasset            varchar(50), --types of asset investment
-time_period             timestamp,  --time period of the investment only years,months
-time_recorded           timestamp  --time when it was entered in the database
-
+time_period             varchar(20),  --time period of the investment only years,months
+time_recorded           varchar(20)  --time when it was entered in the database
 );
 --INHERITS (assets_types_master);
 

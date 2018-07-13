@@ -4,12 +4,13 @@ var db = require('../modals/orderQueries');
  getName = function(req,res,next){
     //console.log("inside controller get name");
     // req = req.body.result.parameters;
-    var type_asset = req.body.queryResult.parameters.typeasset;
+    
     var user_mobno = req.body.queryResult.parameters.mobileno;
     var interest_rate = req.body.queryResult.parameters.interest_rate;
     var amount=req.body.queryResult.parameters.amount;
     var asset_investment_date=req.body.queryResult.parameters.asset_investment_date;
     var asset_maturity_date=req.body.queryResult.parameters.asset_maturity_date;
+    var type_asset = req.body.queryResult.parameters.typeasset;
     var time_period =req.body.queryResult.parameters.time_period;
     
     
