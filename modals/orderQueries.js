@@ -6,13 +6,22 @@ var db = require('../config/dbconnection');
 function createEntry(req,res,next){
     var reqObj = req.body.queryResult.parameters;
     console.log(reqObj);
-db.one("INSERT INTO investment_profile_assets values(DEFAULT,$1,$2,$3,$4,$5,$6,$7)",[reqObj.mobileno,
+    db.one("INSERT INTO investment_profile_assets (mobileno, interest_rate, amount, asset_investment_date, asset_maturity_date, time_period) VALUES"(
+        reqObj.mobileno,
+        reqObj.interest_rate,
+        reqObj.amount,
+        reqObj.asset_investment_date,
+        reqObj.asset_maturity_date, 
+        reqObj.typeasset,
+        reqObj.time_period))
+/*db.one("INSERT INTO investment_profile_assets (DEFAULT $1,$2,$3,$4,$5,$6,$7)",[
+    reqObj.mobileno,
     reqObj.interest_rate,
     reqObj.amount,
     reqObj.asset_investment_date,
     reqObj.asset_maturity_date, 
     reqObj.typeasset,
-    reqObj.time_period])
+    reqObj.time_period])*/
     .then(function(result){
         var message = {status:"success",
                        message:"record inserted",
