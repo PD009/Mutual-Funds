@@ -6,7 +6,7 @@ var db = require('../config/dbconnection');
 function createEntry(req,res,next){
     var reqObj = req.body.queryResult.parameters;
     console.log(reqObj);
-    db.one('INSERT INTO investment_profile_assets(mobileno, interest_rate, amount, asset_investment_date, asset_maturity_date, time_period) values($1, $2, $3, $4, $5, $6, $7)',
+    db.one('INSERT INTO investment_profile_assets(mobileno, interest_rate, amount, asset_investment_date, asset_maturity_date, time_period) values($1, $2, $3, $4, $5, $6)',
     [reqObj.mobileno,reqObj.interest_rate,reqObj.amount,reqObj.asset_investment_date,reqObj.asset_maturity_date, reqObj.time_period])
 /*db.one("INSERT INTO investment_profile_assets (DEFAULT $1,$2,$3,$4,$5,$6,$7)",[
     reqObj.mobileno,
