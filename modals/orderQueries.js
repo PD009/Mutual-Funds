@@ -29,10 +29,33 @@ function createEntry(req,res,next){
         console.error('SQL error: ', error);
     });
     
+}
+
+    function createIP(req,res,next){
+        var reqObj = req.body.queryIP.parameters;
+        console.log(reqObj);
+        db.one('INSERT INTO investment_profile_liabilities(mobileno, interest_rate, amount, liability_investment_date, liability_maturity_date, time_period) values($1, $2, $3, $4, $5, $6)',
+        [reqObj.mobileno,reqObj.interest_rate,reqObj.amount,reqObj.liability_investment_date,reqObj.liability_maturity_date, reqObj.time_period])
+        .then(function(result){
+            var message = {status:"success",
+                           message:"record inserted",
+                           id:result}
+            console.log("query successful : ", message);
+            // return res.status(200)
+            //    .json({status:"success",
+            //          message:"record inserted",
+            //          id:result})
+        }).catch(function(error){
+            console.error('SQL error: ', error);
+        });
+
+
+    
     
 
 };
 
 module.exports = {
-    createEntry    : createEntry
+    createEntry      : createEntry,
+    createIP       : createIP
 };

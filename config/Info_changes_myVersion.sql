@@ -37,15 +37,16 @@ typeasset            varchar(50) --types of asset investment
 
 
 CREATE TABLE investment_profile_liabilities (
-mobile_no       int(10)    PRIMARY KEY,  --users mobile number
-user_id integer NOT NULL DEFAULT nextval('id_seq'),
+mobile_no       int    PRIMARY KEY,  --users mobile number
+--user_id integer NOT NULL DEFAULT nextval('id_seq'),
 interest_rate     float(2),  --in percentage
 amount              int,   --approx net worth
 liability_investment_date date,  --date of the liability  (MDY format)
 liability_maturity_date           date,  --date of the liability ends  (MDY format)
 time_period         timestamp,  --time period of the investment only years,months
 time_recorded           timestamp  --time when it was entered in the database
-)INHERITS (type_liability);
+);
+--INHERITS (type_liability);
 
 ALTER SEQUENCE id_seq2
 owned BY investment_profile_liabilities.mobile_no;
