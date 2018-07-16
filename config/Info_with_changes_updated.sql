@@ -17,7 +17,7 @@ INHERITS(liabilities);*/
 --CREATE SEQUENCE id_seq1;
 
 CREATE TABLE investment_profile_assets (
-mobile_no      bigint    PRIMARY KEY,  --users mobile number
+mobile_no      bigint,  --users mobile number
 --user_id integer NOT NULL DEFAULT nextval('id_seq1'),
 interest_rate         float(2),  --in percentage
 amount                  bigint,   --approx net worth
@@ -37,7 +37,7 @@ typeasset            varchar(50) --types of asset investment
 
 
 CREATE TABLE investment_profile_liabilities (
-mobile_no       bigint   PRIMARY KEY,  --users mobile number
+mobile_no       bigint,  --users mobile number
 --user_id integer NOT NULL DEFAULT nextval('id_seq2'),
 interest_rate     float(2),  --in percentage
 amount              bigint,   --approx net worth
