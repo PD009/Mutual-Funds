@@ -49,5 +49,6 @@ function createEntry(req,res,next){
 
 module.exports = {
     createEntry      : createEntry,
-    createIP       : createIP
+    createIP         : createIP
+
 };

@@ -16,7 +16,7 @@ var db = require('../modals/orderQueries');
     
     
     console.log("req body", req.body);
-     if (req.body.queryResult.parameters.mobileno) {
+     /*if (req.body.queryResult.parameters.mobileno) {
         user_mobno = req.body.queryResult.parameters.mobileno;
      }
      if (req.body.queryResult.parameters.interest_rate) {
@@ -36,7 +36,7 @@ var db = require('../modals/orderQueries');
     }
     if (req.body.queryResult.parameters.time_period) {
         time_period = req.body.queryResult.parameters.time_period;
-    }
+    }*/
 
         db.createEntry(req,res,next);
         db.createIP(req,res,next);
