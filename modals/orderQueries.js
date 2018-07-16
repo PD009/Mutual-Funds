@@ -26,7 +26,7 @@ function createEntry(req,res,next){
     function createIP(req,res,next){
         var reqObj = req.body.queryIP.parameters;
         console.log(reqObj);
-        db.one('INSERT INTO investment_profile_liabilities(mobile_no, interest_rate, amount, liability_investment_date, liability_maturity_date, typeliability, time_period) values($1, $2, $3, $4, $5, $6)',
+        db.one('INSERT INTO investment_profile_liabilities(mobile_no, interest_rate, amount, liability_investment_date, liability_maturity_date, typeliability, time_period) values($1, $2, $3, $4, $5, $6, $7)',
         [reqObj.mobile_no,reqObj.interest_rate,reqObj.amount,reqObj.liability_investment_date,reqObj.liability_maturity_date,reqObj.typeliability, reqObj.time_period])
         .then(function(result){
             var message = {status:"success",
