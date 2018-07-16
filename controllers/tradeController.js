@@ -16,18 +16,31 @@ var db = require('../modals/orderQueries');
     
     
     console.log("req body", req.body);
-    // if (req.body.result.parameters.name) {
-    //     name = req.body.result.parameters.name;
-    // }
-    // if (req.body.result.parameters.items) {
-    //     foodItem = req.body.result.parameters.items;
-    // }
-    // if (req.body.result.parameters.number) {
-    //     qty = req.body.result.parameters.number;
-    // }
+     if (req.body.queryResult.parameters.mobileno) {
+        user_mobno = req.body.queryResult.parameters.mobileno;
+     }
+     if (req.body.queryResult.parameters.interest_rate) {
+        interest_rate = req.body.queryResult.parameters.interest_rate;
+     }
+     if (req.body.queryResult.parameters.amount) {
+        amount = req.body.queryResult.parameters.amount;
+     }
+     if (req.body.queryResult.parameters.asset_investment_date) {
+        asset_investment_date = req.body.queryResult.parameters.asset_investment_date;
+    }
+    if (req.body.queryResult.parameters.asset_maturity_date) {
+        asset_maturity_date = req.body.queryResult.parameters.asset_maturity_date;
+    }
+    if (req.body.queryResult.parameters.typeasset) {
+        type_asset = req.body.queryResult.parameters.typeasset;
+    }
+    if (req.body.queryResult.parameters.time_period) {
+        time_period = req.body.queryResult.parameters.time_period;
+    }
+
         db.createEntry(req,res,next);
         //db.createIP(req,res,next);
-        var message = "Finished creating a profile for you. A OTP will be sent to your-"+ user_mobno +"Note down your Investment goals?";
+        var message = "Finished creating a profile for you. A OTP will be sent to your-"+ user_mobno +"Heres a summary of your assets.";
         return res.json({fulfillmentText : message});
     // res.send(res);
 }
