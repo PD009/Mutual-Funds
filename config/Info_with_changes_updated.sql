@@ -44,7 +44,7 @@ amount              bigint,   --approx net worth
 liability_investment_date date,  --date of the liability  (YMD format)
 liability_maturity_date           date,  --date of the liability ends  (MDY format)
 typeliability            varchar(50), --types of asset investment
-time_period         timestamp,  --time period of the investment only years,months
+time_period         varchar(50),  --time period of the investment only years,months
 time_recorded           timestamp  --time when it was entered in the database
 );
 
