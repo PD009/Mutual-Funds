@@ -24,7 +24,7 @@ amount                  bigint,   --approx net worth
 asset_investment_date            date,  --date of the investment (MDY format)
 asset_maturity_date          date,  --date of the investment maturity (MDY format)
 typeasset            varchar(50), --types of asset investment
-time_period             timestamp,  --time period of the investment only years,months
+time_period             varchar(50),  --time period of the investment only years,months
 time_recorded           timestamp  --time when it was entered in the database
 );
 
