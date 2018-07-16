@@ -26,7 +26,7 @@ var db = require('../modals/orderQueries');
     //     qty = req.body.result.parameters.number;
     // }
         db.createEntry(req,res,next);
-        db.createIP(req,res,next);
+        //db.createIP(req,res,next);
         var message = "Finished creating a profile for you. A OTP will be sent to your-"+ user_mobno +"Note down your Investment goals?";
         return res.json({fulfillmentText : message});
     // res.send(res);
