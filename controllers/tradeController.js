@@ -1,4 +1,4 @@
-var express = require('express');
+/*var express = require('express');
 var db = require('../modals/orderQueries');
 
  getName = function(req,res,next){
@@ -36,7 +36,7 @@ var db = require('../modals/orderQueries');
     }
     if (req.body.queryResult.parameters.time_period) {
         time_period = req.body.queryResult.parameters.time_period;
-    }*/
+    }
 
         db.createEntry(req,res,next);
         db.createIP(req,res,next);
@@ -47,4 +47,4 @@ var db = require('../modals/orderQueries');
 
 module.exports = {
     getName         :   getName
-};
+};*/
