@@ -19,7 +19,7 @@ var db = require('../modals/orderQueries');
         message = this.saveGoals(req);
     }
     if(reqAction === 'getUserProfile'){
-        message = this.UserProfile(req);
+        message = this.saveUserProfile(req);
     }
 
 
