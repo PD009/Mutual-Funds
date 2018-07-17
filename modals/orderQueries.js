@@ -1,6 +1,9 @@
 var db = require('../config/dbconnection');
 //var stringify = require('json-stringify-safe');
 
+var user_mobno= req.body.queryResult.outputContexts.name.mobile_no;
+
+
 //Create
 
 function createEntry(req,res,next){
@@ -48,7 +51,7 @@ function createEntry(req,res,next){
        var reqObj = req.body.queryResult.parameters;
        console.log(reqObj);
        db.one('INSERT INTO investment_goal(mobile_no, goal_planned_date, typegoals) values($1, $2, $3)',
-       [reqObj.mobile_no,reqObj.goal_planned_date,reqObj.typegoals])
+       [user_mobno,reqObj.goal_planned_date,reqObj.typegoals])
        .then(function(result){
             var message = {status:"success",
                        message:"record inserted",

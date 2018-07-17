@@ -7,7 +7,8 @@ var db = require('../modals/orderQueries');
     var message = '';
 
     var reqAction = req.body.queryResult.action;
-    
+    var user_mobno= req.body.queryResult.outputContexts.name.mobile_no;
+
 
     if(reqAction === 'getIPAssets') {
         message = this.saveAssets(req);
