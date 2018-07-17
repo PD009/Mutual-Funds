@@ -1,7 +1,7 @@
 var db = require('../config/dbconnection');
 //var stringify = require('json-stringify-safe');
 
-var user_mobno= req.body.queryResult.outputContexts.name.mobile_no;
+var user_mobno= req.body.queryResult.outputContexts.liability.mobile_no;
 
 
 //Create
