@@ -45,7 +45,7 @@ saveAssets = function(reqParam){
 };
 
 saveLiabilities = function(reqParam){
-    reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].name.mobile_no;
+    reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
     console.log('query context ::::::::',reqParam.body.queryResult.outputContexts);
     console.log('query context ::::::::',reqParam.body.queryResult.outputContexts[0]);
     console.log('save liablities ::::::::',reqParam.body.queryResult.parameters)
