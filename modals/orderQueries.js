@@ -47,7 +47,7 @@ function createEntry(req,res,next){
    function createIP_goals(req,res,next) {
        var reqObj = req.body.queryResult.parameters;
        console.log(reqObj);
-       db.one('INSERT INTO investment_goal(mobile_no, goal_planned_date, typegoals) values($1, $2, $3, )',
+       db.one('INSERT INTO investment_goal(mobile_no, goal_planned_date, typegoals) values($1, $2, $3)',
        [reqObj.mobile_no,reqObj.goal_planned_date,reqObj.typegoals])
        .then(function(result){
             var message = {status:"success",
