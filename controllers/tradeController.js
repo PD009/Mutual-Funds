@@ -7,8 +7,6 @@ var db = require('../modals/orderQueries');
     var message = '';
 
     var reqAction = req.body.queryResult.action;
-    var user_mobno= req.body.queryResult.outputContexts.name.mobile_no;
-
 
     if(reqAction === 'getIPAssets') {
         message = this.saveAssets(req);
@@ -47,6 +45,7 @@ saveAssets = function(reqParam){
 };
 
 saveLiabilities = function(reqParam){
+    reqParam.mobile_no = reqParam.body.queryResult.outputContexts[1].name.mobile_no;
     db.createIP(reqParam);
     var msg = "Finished creating your investment profile for you. An OTP will be sent to your registered mobile no.";
     return msg;
