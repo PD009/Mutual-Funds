@@ -74,13 +74,11 @@ mobile_no       bigint   PRIMARY KEY,  --users mobile number
 user_id integer NOT NULL DEFAULT nextval('id_seq4'),
 goal_planned_date        date,  --ending date of the investment  (MDY format)
 typegoals            varchar(50),--types of asset investment
-time_recorded           timestamp,  --time when it was entered in the database
---time_period             timestamp  --time period of the investment only years
-
+time_recorded           timestamp --time when it was entered in the database
 );
 
 ALTER SEQUENCE id_seq4
-owned BY user_profile.mobile_no;
+owned BY investment_goal.mobile_no;
 
 CREATE TABLE goals_master(
 typegoals            varchar(50) --types of asset investment

@@ -5,37 +5,28 @@ var db = require('../modals/orderQueries');
     //console.log("inside controller get name");
     // req = req.body.result.parameters;
     var message = '';
-    /*var user_mobno = req.body.queryResult.parameters.mobileno;
-    var interest_rate = req.body.queryResult.parameters.interest_rate;
-    var amount=req.body.queryResult.parameters.amount;
-    var asset_investment_date=req.body.queryResult.parameters.asset_investment_date;
-    var asset_maturity_date=req.body.queryResult.parameters.asset_maturity_date;*/
+
     var type_asset = req.body.queryResult.parameters.typeasset;
     var time_period = req.body.queryResult.parameters.time_period;
     var type_liabilities = req.body.queryResult.parameters.typeliability;
+    var type_goals = req.body.queryResult.parameters.typegoals;  
+
     if(type_asset) {
         message = this.saveAssets(req);
     }
     if(type_liabilities){
         message = this.saveLiabilities(req);
     }
+    if(type_goals){
+        message = this.saveGoals(req);
+    }
+    if(username){
+        message = this.UserProfile(req);
+    }
+
 
     console.log("req body", req.body);
-    //  if (req.body.queryResult.parameters.mobileno) {
-    //     user_mobno = req.body.queryResult.parameters.mobileno;
-    //  }
-    //  if (req.body.queryResult.parameters.interest_rate) {
-    //     interest_rate = req.body.queryResult.parameters.interest_rate;
-    //  }
-    //  if (req.body.queryResult.parameters.amount) {
-    //     amount = req.body.queryResult.parameters.amount;
-    //  }
-    //  if (req.body.queryResult.parameters.asset_investment_date) {
-    //     asset_investment_date = req.body.queryResult.parameters.asset_investment_date;
-    // }
-    // if (req.body.queryResult.parameters.asset_maturity_date) {
-    //     asset_maturity_date = req.body.queryResult.parameters.asset_maturity_date;
-    // }
+
     // if (req.body.queryResult.parameters.typeasset) {
     //     type_asset = req.body.queryResult.parameters.typeasset;
     // }
@@ -61,6 +52,18 @@ saveLiabilities = function(reqParam){
     var msg = "Finished creating your investment profile for you. An OTP will be sent to your registered mobile no.";
     return msg;
 };
+
+saveGoals = function(reqParam){
+    db.createIP_goals(reqParam);
+    var msg = "Great job! It's always good to know your goals, so that you can focus better. Create your user profile next?";
+    return msg; 
+};
+
+saveUserProfile = function(reqParam){
+    db.createUserIP(reqParam);
+    var msg = "Well done here's a summary of what's stored with us of yours.";
+    return msg; 
+}
 
 module.exports = {
     getName         :   getName

@@ -6,7 +6,7 @@ var db = require('../config/dbconnection');
 function createEntry(req,res,next){
     var reqObj = req.body.queryResult.parameters;
     console.log(reqObj);
-    db.one('INSERT INTO investment_profile_assets(mobile_no, interest_rate, amount, asset_investment_date, asset_maturity_date, typeasset, time_period) values($1, $2, $3, $4, $5, $6, $7)',
+    db.one("INSERT INTO investment_profile_assets(mobile_no, interest_rate, amount, asset_investment_date, asset_maturity_date, typeasset, time_period) values($1, $2, $3, $4, $5, $6, $7)",
     [reqObj.mobile_no,reqObj.interest_rate,reqObj.amount,reqObj.asset_investment_date,reqObj.asset_maturity_date,reqObj.typeasset, reqObj.time_period])
     .then(function(result){
         var message = {status:"success",
@@ -21,7 +21,7 @@ function createEntry(req,res,next){
         console.error('SQL error: ', error);
     });
     
-}
+};
 
     function createIP(req,res,next){
         var reqObj = req.body.queryResult.parameters;
@@ -42,13 +42,57 @@ function createEntry(req,res,next){
         });
 
 
-    
-    
+    };
+
+   function createIP_goals(req,res,next) {
+       var reqObj = req.body.queryResult.parameters;
+       console.log(reqObj);
+       db.one('INSERT INTO investment_goal(mobile_no, goal_planned_date, typegoals) values($1, $2, $3, )',
+       [reqObj.mobile_no,reqObj.goal_planned_date,reqObj.typegoals])
+       .then(function(result){
+            var message = {status:"success",
+                       message:"record inserted",
+                       id:result}
+        console.log("query successful : ", message);
+        // return res.status(200)
+        //    .json({status:"success",
+        //          message:"record inserted",
+        //          id:result})
+    }).catch(function(error){
+        console.error('SQL error: ', error);
+    });
+
+
+
+};
+
+function createUserIP(req,res,next) {
+    var reqObj = req.body.queryResult.parameters;
+    console.log(reqObj);
+    db.one('INSERT INTO user_profile(mobile_no, username, email_addr, aadhaar) values($1, $2, $3, $4 )',
+    [reqObj.mobile_no, reqObj.username, reqObj.email_addr, reqObj.aadhaar])
+    .then(function(result){
+         var message = {status:"success",
+                    message:"record inserted",
+                    id:result}
+     console.log("query successful : ", message);
+     // return res.status(200)
+     //    .json({status:"success",
+     //          message:"record inserted",
+     //          id:result})
+ }).catch(function(error){
+     console.error('SQL error: ', error);
+ });
+
+
 
 };
 
 module.exports = {
     createEntry      : createEntry,
-    createIP         : createIP
+    createIP         : createIP,
+    createIP_goals   : createIP_goals,
+    createUserIP     : createUserIP
+
 
 };
