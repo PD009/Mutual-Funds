@@ -18,7 +18,7 @@ function createEntry(req,res,next){
         //          message:"record inserted",
         //          id:result})
     }).catch(function(error){
-        console.error('SQL error: ', error);
+        console.error('createEntry SQL error: ', error);
     });
     
 };
@@ -38,7 +38,7 @@ function createEntry(req,res,next){
             //          message:"record inserted",
             //          id:result})
         }).catch(function(error){
-            console.error('SQL error: ', error);
+            console.error('createIP SQL error: ', error);
         });
 
 
@@ -59,7 +59,7 @@ function createEntry(req,res,next){
         //          message:"record inserted",
         //          id:result})
     }).catch(function(error){
-        console.error('SQL error: ', error);
+        console.error('createIP_goals SQL error: ', error);
     });
 
 
@@ -81,7 +81,7 @@ function createUserIP(req,res,next) {
      //          message:"record inserted",
      //          id:result})
  }).catch(function(error){
-     console.error('SQL error: ', error);
+     console.error('createUserIP SQL error: ', error);
  });
 
 
