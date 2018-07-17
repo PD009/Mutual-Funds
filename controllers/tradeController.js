@@ -9,16 +9,16 @@ var db = require('../modals/orderQueries');
     var reqAction = req.body.queryResult.action;
     
 
-    if(reqAction === getIPAssets) {
+    if(reqAction === 'getIPAssets') {
         message = this.saveAssets(req);
     }
-    if(reqAction === getIPLiabilities){
+    if(reqAction === 'getIPLiabilities'){
         message = this.saveLiabilities(req);
     }
-    if(reqAction === getGoals){
+    if(reqAction === 'getGoals'){
         message = this.saveGoals(req);
     }
-    if(reqAction === getUserProfile){
+    if(reqAction === 'getUserProfile'){
         message = this.UserProfile(req);
     }
 
