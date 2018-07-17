@@ -46,6 +46,8 @@ saveAssets = function(reqParam){
 
 saveLiabilities = function(reqParam){
     reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].name.mobile_no;
+    console.log('query context ::::::::',reqParam.body.queryResult.outputContexts);
+    console.log('query context ::::::::',reqParam.body.queryResult.outputContexts[0]);
     console.log('save liablities ::::::::',reqParam.body.queryResult.parameters)
     db.createIP(reqParam);
     var msg = "Finished creating your investment profile for you. An OTP will be sent to your registered mobile no.";
