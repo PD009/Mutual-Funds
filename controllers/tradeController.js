@@ -6,21 +6,19 @@ var db = require('../modals/orderQueries');
     // req = req.body.result.parameters;
     var message = '';
 
-    var type_asset = req.body.queryResult.parameters.typeasset;
-    var time_period = req.body.queryResult.parameters.time_period;
-    var type_liabilities = req.body.queryResult.parameters.typeliability;
-    var type_goals = req.body.queryResult.parameters.typegoals;  
+    var reqAction = req.body.queryResult.action;
+    
 
-    if(type_asset) {
+    if(reqAction === getIPAssets) {
         message = this.saveAssets(req);
     }
-    if(type_liabilities){
+    if(reqAction === getIPLiabilities){
         message = this.saveLiabilities(req);
     }
-    if(type_goals){
+    if(reqAction === getGoals){
         message = this.saveGoals(req);
     }
-    if(username){
+    if(reqAction === getUserProfile){
         message = this.UserProfile(req);
     }
 
