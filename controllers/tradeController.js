@@ -43,6 +43,7 @@ var db = require('../modals/orderQueries');
 saveAssets = function(reqParam){
     var param = reqParam.body.queryResult.parameters;
     var msg = '';
+    console.log("save assets intent :::::::::::::");
     if (param.mobile_no) {
         var user_mobno= param.mobile_no;
         var mob = user_mobno.length;
