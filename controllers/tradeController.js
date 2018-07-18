@@ -56,6 +56,16 @@ saveAssets = function(reqParam){
             msg = "What is the rate of interest of the asset ?"
         }
     }
+    if(param.interest_rate){
+        msg="What is the approximate worth of your amount?";
+    }
+    if(param.amount){
+        console.log("amount:::::");
+        msg="Looks great! When did your investment date"
+    }
+
+
+
             //return true;
             // db.createEntry(reqParam);
             if (param.time_period) {
