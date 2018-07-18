@@ -56,6 +56,7 @@ saveLiabilities = function(reqParam){
     var mob = user_mobno.length;
     if( mob < 10 ){
         var msg1="Please put in 10 digits of your mobile number properly."
+        return msg1;
     }
 
     else{
