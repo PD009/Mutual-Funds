@@ -74,7 +74,7 @@ saveAssets = function(reqParam){
         else {
             msg="Good job. When is the date of maturity of your investment?(YYYY-MM-DD)";
         }
-
+    }
     if(param.asset_maturity_date){
             console.log("date format check------");
             var doam = param.asset_maturity_date;
@@ -89,9 +89,7 @@ saveAssets = function(reqParam){
 
     }
 
-
-
-            //return true;
+          //return true;
             // db.createEntry(reqParam);
             if (param.time_period) {
                 console.log("time period:::::::");
