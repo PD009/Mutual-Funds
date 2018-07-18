@@ -62,7 +62,7 @@ saveGoals = function(reqParam){
 };
 
 saveUserProfile = function(reqParam){
-    //reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
+    reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
     db.createUserIP(reqParam);
     var msg = "Well done here's a summary of what's stored with us of yours.";
     return msg; 
