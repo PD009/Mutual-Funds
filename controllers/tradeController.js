@@ -48,7 +48,7 @@ saveAssets = function(reqParam){
        if( mob <= 10 ){
           var msg="Please put in 10 digits of your mobile number properly."
           return msg;
-    }
+    
         else{
             //return true;
             db.createEntry(reqParam);
@@ -56,6 +56,7 @@ saveAssets = function(reqParam){
     return msg;
         }
     }
+}
     
 };
 
