@@ -47,16 +47,18 @@ saveAssets = function(reqParam){
         var user_mobno= param.mobile_no;
         var mob = user_mobno.length;
        if( mob <= 10 ){
+           console.log("not validated");
           msg="Please put in 10 digits of your mobile number properly."
-          return msg;
        }
         else if(mob == 10 && param.mobile_no){
+            console.log("mobile number validated:::::");
             msg = "What is the rate of interest of the asset ?"
         }
     }
             //return true;
             db.createEntry(reqParam);
             if (param.time_period) {
+                console.log("time period:::::::");
                 msg = "Finished creating an asset profile for you.Let's create your liabilities profile? If yes, type liability.";
             }
     return msg;
