@@ -40,7 +40,7 @@ var db = require('../modals/orderQueries');
 
 saveAssets = function(reqParam){
     db.createEntry(reqParam);
-    var msg = "Finished creating an asset profile for you. Let's go to create your liabilities profile.";
+    var msg = "Finished creating an asset profile for you.Let's create your liabilities profile? If yes, type liability.";
     return msg;
 };
 
@@ -50,21 +50,21 @@ saveLiabilities = function(reqParam){
     console.log('query context ::::::::',reqParam.body.queryResult.outputContexts[0]);
     console.log('save liablities ::::::::',reqParam.body.queryResult.parameters)
     db.createIP(reqParam);
-    var msg = "Finished creating your investment profile for you. An OTP will be sent to your registered mobile no.";
+    var msg = "Finished creating your investment profile for you. An OTP will be sent to your registered mobile no.Let's see what your goals are? If yes,type goals.";
     return msg;
 };
 
 saveGoals = function(reqParam){
     reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
     db.createIP_goals(reqParam);
-    var msg = "Great job! It's always good to know your goals, so that you can focus better. Create your user profile next?";
+    var msg = "Great job! It's always good to know your goals, so that you can focus better. Create your user profile next?If yes, type-user profile.";
     return msg; 
 };
 
 saveUserProfile = function(reqParam){
     reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
     db.createUserIP(reqParam);
-    var msg = "Well done here's a summary of what's stored with us of yours.";
+    var msg = "Well done! A summary of what's stored with us will be sent to your email.";
     return msg; 
 }
 
