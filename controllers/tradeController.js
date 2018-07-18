@@ -41,9 +41,22 @@ var db = require('../modals/orderQueries');
 
 
 saveAssets = function(reqParam){
-    db.createEntry(reqParam);
+    var param = reqParam.body.queryResult.parameters;
+    if (param.mobile_no) {
+        var user_mobno= param.mobile_no;
+        var mob = user_mobno.length;
+       if( mob <= 10 ){
+          var msg="Please put in 10 digits of your mobile number properly."
+          return msg;
+    }
+        else{
+            //return true;
+            db.createEntry(reqParam);
     var msg = "Finished creating an asset profile for you.Let's create your liabilities profile? If yes, type liability.";
     return msg;
+        }
+    }
+    
 };
 
 saveLiabilities = function(reqParam){
@@ -51,19 +64,11 @@ saveLiabilities = function(reqParam){
     console.log('query context ::::::::',reqParam.body.queryResult.outputContexts);
     console.log('query context ::::::::',reqParam.body.queryResult.outputContexts[0]);
     console.log('save liablities ::::::::',reqParam.body.queryResult.parameters);
-    var user_mobno=reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
-
-    var mob = user_mobno.length;
-    if( mob < 10 ){
-        var msg="Please put in 10 digits of your mobile number properly."
-        return msg;
-    }
-
-    else{
+    //var user_mobno=reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
+ 
     db.createIP(reqParam);
     var msg = "Finished creating your investment profile for you. An OTP will be sent to your registered mobile no.Let's see what your goals are? If yes,type goals.";
     return msg;
-    }
 };
 
 saveGoals = function(reqParam){
