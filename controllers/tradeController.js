@@ -42,22 +42,24 @@ var db = require('../modals/orderQueries');
 
 saveAssets = function(reqParam){
     var param = reqParam.body.queryResult.parameters;
+    var msg = '';
     if (param.mobile_no) {
         var user_mobno= param.mobile_no;
         var mob = user_mobno.length;
        if( mob <= 10 ){
-          var msg="Please put in 10 digits of your mobile number properly."
+          msg="Please put in 10 digits of your mobile number properly."
           return msg;
-    
-        else{
-            //return true;
-            db.createEntry(reqParam);
-    var msg = "Finished creating an asset profile for you.Let's create your liabilities profile? If yes, type liability.";
-    return msg;
+       }
+        else if(mob == 10 && param.mobile_no){
+            msg = "What is the rate of interest of the asset ?"
         }
     }
-}
-    
+            //return true;
+            db.createEntry(reqParam);
+            if (param.time_period) {
+                msg = "Finished creating an asset profile for you.Let's create your liabilities profile? If yes, type liability.";
+            }
+    return msg;
 };
 
 saveLiabilities = function(reqParam){
