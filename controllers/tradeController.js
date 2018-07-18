@@ -47,7 +47,7 @@ saveAssets = function(reqParam){
     if (param.mobile_no) {
         var user_mobno= param.mobile_no;
         var mob = user_mobno.length;
-       if( mob <= 10 ){
+       if( mob !== 10 ){
            console.log("not validated");
           msg="Please put in 10 digits of your mobile number properly."
        }
