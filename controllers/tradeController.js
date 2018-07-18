@@ -55,12 +55,14 @@ saveLiabilities = function(reqParam){
 };
 
 saveGoals = function(reqParam){
+    reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
     db.createIP_goals(reqParam);
     var msg = "Great job! It's always good to know your goals, so that you can focus better. Create your user profile next?";
     return msg; 
 };
 
 saveUserProfile = function(reqParam){
+    //reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
     db.createUserIP(reqParam);
     var msg = "Well done here's a summary of what's stored with us of yours.";
     return msg; 
