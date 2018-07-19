@@ -66,14 +66,14 @@ saveAssets = function(reqParam){
     if(param.asset_investment_date){
         console.log("date format check------");
         var doai = param.asset_investment_date;
-        var pattern=/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])+([0-5][0-9]):([0-5][0-9])$/;
-        if (doai == null || pattern.test(doai) == false ) {
-            msg = "Invalid date of investment. Please enter the date in the format specified.\n";
+        //var pattern=/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])+([0-5][0-9]):([0-5][0-9])$/;
+        //if (doai == null || pattern.test(doai) == false ) {
+         //   msg = "Invalid date of investment. Please enter the date in the format specified.\n";
         
-        }
-        else {
+        //}
+        //else {
             msg="Good job. When is the date of maturity of your investment?(YYYY-MM-DD)";
-        }
+        //}
     }
     if(param.asset_maturity_date){
             console.log("date format check------");
