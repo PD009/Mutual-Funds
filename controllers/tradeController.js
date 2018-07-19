@@ -135,12 +135,12 @@ saveLiabilities = function(reqParam){
             
             //  }
             //  else {
-                msg="What type of asset do you have(Gold, Real Estate, Savings, Equity)?";
+                msg="What type of liability do you have (home loan, personal loan)?";
              //}
 
     }
     if(param.typeliability){
-        msg="Good job! Let's create a liability profile? If yes, type liability.";
+        msg="Good job! Time period of your liabiliy?";
     }
 
      if (param.time_period) {
