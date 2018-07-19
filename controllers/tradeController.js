@@ -147,10 +147,6 @@ saveLiabilities = function(reqParam){
          console.log("time period:::::::");
          msg = "Finished creating your investment profile for you. An OTP will be sent to your registered mobile no.Let's see what your goals are? If yes,type goals.";
             }
-
-    console.log('query context ::::::::',reqParam.body.queryResult.outputContexts);
-    console.log('query context ::::::::',reqParam.body.queryResult.outputContexts[0]);
-    console.log('save liablities ::::::::',reqParam.body.queryResult.parameters);
     
  
    // db.createIP(reqParam);
