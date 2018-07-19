@@ -66,7 +66,7 @@ saveAssets = function(reqParam){
     if(param.asset_investment_date){
         console.log("date format check------");
         var doai = param.asset_investment_date;
-        var pattern=/^([0-9]{4})\-([0-9]{2})\-([0-9]{2})$/;
+        var pattern=/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])+([0-5][0-9]):([0-5][0-9])$/;
         if (doai == null || pattern.test(doai) == false ) {
             msg = "Invalid date of investment. Please enter the date in the format specified.\n";
         
@@ -78,51 +78,144 @@ saveAssets = function(reqParam){
     if(param.asset_maturity_date){
             console.log("date format check------");
             var doam = param.asset_maturity_date;
-            var pattern=/^([0-9]{4})\-([0-9]{2})\-([0-9]{2})[T][0-9]{2}:[0-9]{2}:[0-9]{2}+[0-9]{2}:[0-60]$/;//
-            // if (doam == null || pattern.test(doam) == false ) {
-            //     msg = "Invalid date of investment. Please enter the date in the format specified.\n";
+            var pattern=/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])+([0-5][0-9]):([0-5][0-9])$/;
+             if (doam == null || pattern.test(doam) == false ) {
+                 msg = "Invalid date of investment. Please enter the date in the format specified.\n";
             
-            // }
-            // else {
-                msg="Good job. When is the date of maturity of your investment?(YYYY-MM-DD)";
-            // }
+             }
+             else {
+                msg="What type of asset do you have(Gold, Real Estate, Savings, Equity)?";
+             }
 
+    }
+    if(param.typeasset){
+        msg="Time period of your investment.";
     }
 
           //return true;
             // db.createEntry(reqParam);
-            if (param.time_period) {
-                console.log("time period:::::::");
-                msg = "Finished creating an asset profile for you.Let's create your liabilities profile? If yes, type liability.";
+     if (param.time_period) {
+         console.log("time period:::::::");
+         msg = "Finished creating an asset profile for you.Let's create your liabilities profile? If yes, type liability.";
             }
     return msg;
 };
 
 saveLiabilities = function(reqParam){
-    reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
+    var param = reqParam.body.queryResult.parameters;
+    //var user_mobno=reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
+    //reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no; var msg = '';
+    console.log("save assets intent :::::::::::::");
+    
+    if(param.interest_rate){
+        msg="What is the approximate worth of your amount?";
+    }
+    if(param.amount){
+        console.log("amount:::::");
+        msg="Looks great! When did you start your liability?(YYYY-MM-DD)";
+    }
+    if(param.liability_investment_date){
+        console.log("date format check------");
+        var doli = param.asset_investment_date;
+        var pattern=/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])+([0-5][0-9]):([0-5][0-9])$/;
+        if (doli == null || pattern.test(doli) == false ) {
+            msg = "Invalid date . Please enter the date in the format specified.\n";
+        
+        }
+        else {
+            msg="Good job. When does your liability end?(YYYY-MM-DD)";
+        }
+    }
+    if(param.liability_maturity_date){
+            console.log("date format check------");
+            var dolm = param.asset_maturity_date;
+            var pattern=/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])+([0-5][0-9]):([0-5][0-9])$/;
+             if (dolm == null || pattern.test(dolm) == false ) {
+                 msg = "Invalid date of investment. Please enter the date in the format specified.\n";
+            
+             }
+             else {
+                msg="What type of asset do you have(Gold, Real Estate, Savings, Equity)?";
+             }
+
+    }
+    if(param.typeliability){
+        msg="Good job! Let's create a liability profile? If yes, type liability.";
+    }
+
+     if (param.time_period) {
+         console.log("time period:::::::");
+         msg = "Finished creating your investment profile for you. An OTP will be sent to your registered mobile no.Let's see what your goals are? If yes,type goals.";
+            }
+
     console.log('query context ::::::::',reqParam.body.queryResult.outputContexts);
     console.log('query context ::::::::',reqParam.body.queryResult.outputContexts[0]);
     console.log('save liablities ::::::::',reqParam.body.queryResult.parameters);
-    //var user_mobno=reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
+    
  
-    db.createIP(reqParam);
-    var msg = "Finished creating your investment profile for you. An OTP will be sent to your registered mobile no.Let's see what your goals are? If yes,type goals.";
+   // db.createIP(reqParam);
     return msg;
 };
 
 saveGoals = function(reqParam){
-    reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
-    db.createIP_goals(reqParam);
-    var msg = "Great job! It's always good to know your goals, so that you can focus better. Create your user profile next?If yes, type-user profile.";
+    var param = reqParam.body.queryResult.parameters;
+    if(param.goal_planned_date){
+        var dolm = param.asset_maturity_date;
+            var pattern=/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])+([0-5][0-9]):([0-5][0-9])$/;
+             if (dolm == null || pattern.test(dolm) == false ) {
+                 msg = "Invalid date of investment. Please enter the date in the format specified.\n";
+             }     
+    else{        
+        msg="What is your investment goal?";
+    }
+    }
+
+    if(param.typegoals){
+        msg = "Great job! It's always good to know your goals, so that you can focus better. Create your user profile next?If yes, type-user profile.";
+    }
+    //reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
+    //db.createIP_goals(reqParam);
+    
     return msg; 
 };
 
 saveUserProfile = function(reqParam){
-    reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
-    db.createUserIP(reqParam);
-    var msg = "Well done! A summary of what's stored with us will be sent to your email.";
-    return msg; 
+     //reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
+    //db.createUserIP(reqParam);
+    var param = reqParam.body.queryResult.parameters;
+if(param.username){
+    var name= param.username;
+    msg="Great to know you "+name ;
+
+} 
+
+if(param.email_addr){
+    var email = param.email_addr;
+    var pattern=/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        if (email == null || pattern.test(email) == false ) {
+                 msg = "Invalid email. Try again.\n";
+             } 
+                
+    else{        
+        msg="Good goin! One last thing we need to know, type your aadhar number in this format: XXXX-XXXX-XXXX";
+        }
+
 }
+
+if(param.aadhaar){
+    var aadhno = param.aadhaar;
+    var pattern=/^([0-9]{4})-([0-9]{4})-([0-9]{4})/;
+        if (aadhno == null || pattern.test(aadhno) == false ) {
+                 msg = "Invalid email. Try again.\n";
+             } 
+                
+    else{        
+     msg = "Well done! A summary of what's stored with us will be sent to your email.";
+    return msg; 
+                  }
+}
+}
+
 
 module.exports = {
     getName         :   getName
