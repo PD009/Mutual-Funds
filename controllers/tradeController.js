@@ -65,7 +65,7 @@ saveAssets = function(reqParam){
     }
     if(param.asset_investment_date){
         console.log("date format check------");
-        var doai = param.asset_investment_date;
+        //var doai = param.asset_investment_date;
         //var pattern=/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])+([0-5][0-9]):([0-5][0-9])$/;
         //if (doai == null || pattern.test(doai) == false ) {
          //   msg = "Invalid date of investment. Please enter the date in the format specified.\n";
@@ -77,15 +77,15 @@ saveAssets = function(reqParam){
     }
     if(param.asset_maturity_date){
             console.log("date format check------");
-            var doam = param.asset_maturity_date;
-            var pattern=/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])+([0-5][0-9]):([0-5][0-9])$/;
-             if (doam == null || pattern.test(doam) == false ) {
-                 msg = "Invalid date of investment. Please enter the date in the format specified.\n";
+            // var doam = param.asset_maturity_date;
+            // var pattern=/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])+([0-5][0-9]):([0-5][0-9])$/;
+            //  if (doam == null || pattern.test(doam) == false ) {
+            //      msg = "Invalid date of investment. Please enter the date in the format specified.\n";
             
-             }
-             else {
+            //  }
+            //  else {
                 msg="What type of asset do you have(Gold, Real Estate, Savings, Equity)?";
-             }
+            // }
 
     }
     if(param.typeasset){
@@ -116,27 +116,27 @@ saveLiabilities = function(reqParam){
     }
     if(param.liability_investment_date){
         console.log("date format check------");
-        var doli = param.asset_investment_date;
-        var pattern=/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])+([0-5][0-9]):([0-5][0-9])$/;
-        if (doli == null || pattern.test(doli) == false ) {
-            msg = "Invalid date . Please enter the date in the format specified.\n";
+        // var doli = param.asset_investment_date;
+        // var pattern=/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])+([0-5][0-9]):([0-5][0-9])$/;
+        // if (doli == null || pattern.test(doli) == false ) {
+        //     msg = "Invalid date . Please enter the date in the format specified.\n";
         
-        }
-        else {
+        // }
+        // else {
             msg="Good job. When does your liability end?(YYYY-MM-DD)";
-        }
+        //}
     }
     if(param.liability_maturity_date){
             console.log("date format check------");
-            var dolm = param.asset_maturity_date;
-            var pattern=/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])+([0-5][0-9]):([0-5][0-9])$/;
-             if (dolm == null || pattern.test(dolm) == false ) {
-                 msg = "Invalid date of investment. Please enter the date in the format specified.\n";
+            // var dolm = param.asset_maturity_date;
+            // var pattern=/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])+([0-5][0-9]):([0-5][0-9])$/;
+            //  if (dolm == null || pattern.test(dolm) == false ) {
+            //      msg = "Invalid date of investment. Please enter the date in the format specified.\n";
             
-             }
-             else {
+            //  }
+            //  else {
                 msg="What type of asset do you have(Gold, Real Estate, Savings, Equity)?";
-             }
+             //}
 
     }
     if(param.typeliability){
@@ -160,14 +160,14 @@ saveLiabilities = function(reqParam){
 saveGoals = function(reqParam){
     var param = reqParam.body.queryResult.parameters;
     if(param.goal_planned_date){
-        var dolm = param.asset_maturity_date;
-            var pattern=/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])+([0-5][0-9]):([0-5][0-9])$/;
-             if (dolm == null || pattern.test(dolm) == false ) {
-                 msg = "Invalid date of investment. Please enter the date in the format specified.\n";
-             }     
-    else{        
+    //     var dolm = param.asset_maturity_date;
+    //         var pattern=/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])+([0-5][0-9]):([0-5][0-9])$/;
+    //          if (dolm == null || pattern.test(dolm) == false ) {
+    //              msg = "Invalid date of investment. Please enter the date in the format specified.\n";
+    //          }     
+    // else{        
         msg="What is your investment goal?";
-    }
+    //}
     }
 
     if(param.typegoals){
@@ -185,7 +185,7 @@ saveUserProfile = function(reqParam){
     var param = reqParam.body.queryResult.parameters;
 if(param.username){
     var name= param.username;
-    msg="Great to know you "+name ;
+    msg="Great to know you "+ name ;
 
 } 
 
