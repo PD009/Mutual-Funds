@@ -21,6 +21,7 @@ function createEntry(req,res,next){
         //          id:result})
     }).catch(function(error){
         //if(error.error=='')
+        console.error('createEntry SQL :::::::', error.code);
         console.error('createEntry SQL error: ', error);
     });
     
