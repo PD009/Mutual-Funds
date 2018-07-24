@@ -129,13 +129,13 @@ saveLiabilities = function(reqParam){
      if (param.time_period) {
          console.log("time period:::::::");
          db.createIP(reqParam);
-};
          msg = "Finished creating your investment profile for you. An OTP will be sent to your registered mobile no.Let's see what your goals are? If yes,type goals.";
-            }
-    
- 
-   
+};
+         
+console.log("db done---------------------------------"); 
     return msg;
+
+}
     
 
 saveGoals = function(reqParam){
