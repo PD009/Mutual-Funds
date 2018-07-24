@@ -23,6 +23,7 @@ function createEntry(req,res,next){
         var msg = '';
         if(error.code === 23505) {
             msg = 'User exists';
+            console.error('sql existence error');
         }
         console.error('createEntry SQL :::::::', error.code);
         console.error('createEntry SQL error: ', msg);
