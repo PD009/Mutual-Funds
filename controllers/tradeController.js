@@ -98,9 +98,12 @@ saveAssets = function(reqParam){
          console.log("time period:::::::");
          msg = "Finished creating an asset profile for you.Let's create your liabilities profile? If yes, type liability.";
             }
-            
+    
+    console.log("returning message :::::::::::::");       
     return msg;
+    console.log("db entry:::::::::::::");   
     db.createEntry(reqParam);
+    console.log("db entry donee :::::::::::::");   
 };
 
 saveLiabilities = function(reqParam){
