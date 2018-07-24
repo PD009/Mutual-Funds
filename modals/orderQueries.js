@@ -21,7 +21,8 @@ function createEntry(req,res,next){
         //          id:result})
     }).catch(function(error){
         if(error.code === '23505') {
-            return res.status(403).json({message : "User already exists."});
+            var msg = 'User exists';
+            return msg;
 
         }
         console.error('createEntry SQL :::::::', error.code);
