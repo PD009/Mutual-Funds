@@ -25,7 +25,7 @@ function createEntry(req,res,next){
             msg = 'User exists';
         }
         console.error('createEntry SQL :::::::', error.code);
-        console.error('createEntry SQL error: ', error);
+        console.error('createEntry SQL error: ', msg);
         return msg;
     });
     
