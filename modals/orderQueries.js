@@ -20,7 +20,8 @@ function createEntry(req,res,next){
         //          message:"record inserted",
         //          id:result})
     }).catch(function(error){
-        console.error('createEntry SQL error: ', error);
+        //if(error.error=='')
+        console.error('createEntry SQL error: ', error.error);
     });
     
 };
