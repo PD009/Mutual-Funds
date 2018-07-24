@@ -73,6 +73,7 @@ saveAssets = function(reqParam){
     //     }
     //     else {
             msg="Good job. When is the date of maturity of your investment?(YYYY-MM-DD)";
+
         //}
     }
     if(param.asset_maturity_date){
@@ -93,12 +94,13 @@ saveAssets = function(reqParam){
     }
 
           //return true;
-            // db.createEntry(reqParam);
      if (param.time_period) {
          console.log("time period:::::::");
          msg = "Finished creating an asset profile for you.Let's create your liabilities profile? If yes, type liability.";
             }
+            
     return msg;
+    db.createEntry(reqParam);
 };
 
 saveLiabilities = function(reqParam){
@@ -149,8 +151,9 @@ saveLiabilities = function(reqParam){
             }
     
  
-   // db.createIP(reqParam);
+   
     return msg;
+    //db.createIP(reqParam);
 };
 
 saveGoals = function(reqParam){
