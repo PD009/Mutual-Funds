@@ -20,13 +20,13 @@ function createEntry(req,res,next){
         //          message:"record inserted",
         //          id:result})
     }).catch(function(error){
+        var msg = '';
         if(error.code === '23505') {
-            var msg = 'User exists';
-            return msg;
-
+            msg = 'User exists';
         }
         console.error('createEntry SQL :::::::', error.code);
         console.error('createEntry SQL error: ', error);
+        return msg;
     });
     
 };
