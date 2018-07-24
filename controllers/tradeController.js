@@ -105,6 +105,7 @@ saveLiabilities = function(reqParam){
     console.log("save assets intent :::::::::::::");
     
     if(param.interest_rate){
+        
         msg="What is the approximate worth of your amount?";
     }
     if(param.amount){
@@ -140,29 +141,25 @@ console.log("db done---------------------------------");
 
 saveGoals = function(reqParam){
     var param = reqParam.body.queryResult.parameters;
+    reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
     if(param.goal_planned_date){
-    //     var dolm = param.asset_maturity_date;
-    //         var pattern=/^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])+([0-5][0-9]):([0-5][0-9])$/;
-    //          if (dolm == null || pattern.test(dolm) == false ) {
-    //              msg = "Invalid date of investment. Please enter the date in the format specified.\n";
-    //          }     
-    // else{        
+        
         msg="What is your investment goal?";
-    //}
     }
 
     if(param.typegoals){
         msg = "Great job! It's always good to know your goals, so that you can focus better. Create your user profile next?If yes, type-user profile.";
-    }
-    //reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
-    //db.createIP_goals(reqParam);
+        db.createIP_goals(reqParam);
     
+    }
+    
+
     return msg; 
 };
 
 saveUserProfile = function(reqParam){
-     //reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
-    //db.createUserIP(reqParam);
+    reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
+    
     var param = reqParam.body.queryResult.parameters;
 if(param.username){
     var name= param.username;
@@ -174,11 +171,13 @@ if(param.email_addr){
     var email = param.email_addr;
     var pattern=/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
         if (email == null || pattern.test(email) == false ) {
+            
                  msg = "Invalid email. Try again.\n";
              } 
                 
     else{        
-        msg="Good goin! One last thing we need to know, type your aadhar number in this format: XXXX-XXXX-XXXX";
+        
+        msg="successfully done.Enter aadhar"
         }
 
 }
@@ -187,10 +186,11 @@ if(param.aadhaar){
     var aadhno = param.aadhaar;
     var pattern=/^([0-9]{4})-([0-9]{4})-([0-9]{4})/;
         if (aadhno == null || pattern.test(aadhno) == false ) {
-                 msg = "Invalid email. Try again.\n";
+                 msg = "Invalid aadhar. Try again.\n";
              } 
                 
-    else{        
+    else{  
+        db.createUserIP();      
      msg = "Well done! A summary of what's stored with us will be sent to your email.";
     return msg; 
                   }
