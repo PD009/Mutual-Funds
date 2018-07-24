@@ -20,7 +20,10 @@ function createEntry(req,res,next){
         //          message:"record inserted",
         //          id:result})
     }).catch(function(error){
-        //if(error.error=='')
+        if(error.code === '23505') {
+            return res.json({message : "User already exists."});
+
+        }
         console.error('createEntry SQL :::::::', error.code);
         console.error('createEntry SQL error: ', error);
     });
