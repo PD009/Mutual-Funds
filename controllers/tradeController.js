@@ -101,7 +101,7 @@ saveAssets = function(reqParam){
     
     console.log("returning message :::::::::::::");       
     return msg;
-    console.log("db entry:::::::::::::");   
+   // console.log("db entry:::::::::::::");   
     db.createEntry(reqParam);
     console.log("db entry donee :::::::::::::");   
 };
