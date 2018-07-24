@@ -21,7 +21,7 @@ function createEntry(req,res,next){
         //          id:result})
     }).catch(function(error){
         var msg = '';
-        if(error.code === 23505) {
+        if(error.code == 23505) {
             msg = 'User exists';
             console.error('sql existence error');
         }
