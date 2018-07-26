@@ -34,7 +34,7 @@ var db = require('../modals/orderQueries');
     //     db.createEntry(req,res,next);
     //     db.createIP(req,res,next);
     //     var message = "Finished creating a profile for you. A OTP will be sent to your-"+ user_mobno +"Heres a summary of your assets.";
-        //return res.json({fulfillmentText : message});
+        return res.json({fulfillmentText : 'wrong number'});
     // res.send(res);
 };
 
@@ -54,8 +54,8 @@ saveAssets = function(reqParam){
         var mob = user_mobno.length;
        if( mob !== 10 ){
            console.log("not validated");
-          msg="Please put in 10 digits of your mobile number properly."
-          this.commonResponse(msg);
+          msg="Please put in 10 digits of your mobile number properly.";
+        //   this.commonResponse(msg);
        }
         else if(mob == 10 && param.mobile_no){
             console.log("mobile number validated:::::");
