@@ -40,7 +40,7 @@ var db = require('../modals/orderQueries');
 
 
 
-saveAssets = function(reqParam){
+saveAssets = async function(reqParam){
     var param = reqParam.body.queryResult.parameters;
     var msg = '';
     console.log("save assets intent :::::::::::::");
