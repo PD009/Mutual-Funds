@@ -39,7 +39,7 @@ var db = require('../modals/orderQueries');
 };
 
 commonResponse= function(msg){
-    console.log("Response");
+    console.log("Response", msg);
     return res.json({fulfillmentText : msg});
 
 }
