@@ -69,7 +69,7 @@ saveAssets = function(reqParam){
     //         msg="Good job. When is the date of maturity of your investment?(YYYY-MM-DD)";
 
         
-    }
+    //}
     if(param.asset_maturity_date){
             console.log("date format check------");
 
