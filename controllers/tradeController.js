@@ -40,8 +40,8 @@ var db = require('../modals/orderQueries');
 
 commonResponse= function(msg){
     console.log("Response", msg);
-    return res.json({fulfillmentText : msg});
-    res.send(res);
+    return res.send({fulfillmentText : msg});
+    //res.send(res);
 
 }
 
