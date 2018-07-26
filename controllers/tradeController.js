@@ -41,6 +41,7 @@ var db = require('../modals/orderQueries');
 commonResponse= function(msg){
     console.log("Response", msg);
     return res.json({fulfillmentText : msg});
+    res.send(res);
 
 }
 
@@ -54,7 +55,7 @@ saveAssets = function(reqParam){
        if( mob !== 10 ){
            console.log("not validated");
           msg="Please put in 10 digits of your mobile number properly."
-          return res.json({fulfillmentText : msg});
+          this.commonResponse(msg);
        }
         else if(mob == 10 && param.mobile_no){
             console.log("mobile number validated:::::");
