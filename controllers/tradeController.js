@@ -55,7 +55,7 @@ saveAssets = function(reqParam){
        if( mob !== 10 ){
            console.log("not validated");
           msg="Please put in 10 digits of your mobile number properly."
-        //   this.commonResponse(msg);
+          this.commonResponse(msg);
        }
         else if(mob == 10 && param.mobile_no){
             console.log("mobile number validated:::::");
@@ -94,7 +94,7 @@ saveAssets = function(reqParam){
          msg = "Finished creating an asset profile for you.Let's create your liabilities profile? If yes, type liability.";
             }
     console.log("returning message :::::::::::::"); 
-    return res.json({fulfillmentText : msg});
+    // return res.json({fulfillmentText : msg});
       
     
     //console.log("db entry donee :::::::::::::");    
