@@ -27,7 +27,7 @@ var db = require('../config/dbconnection');
         }
         console.error('createEntry SQL :::::::', error.code);
         console.error('createEntry SQL error: ', msg);
-        return msg;
+        return next(msg);
     });
     
 };
