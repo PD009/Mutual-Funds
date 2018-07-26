@@ -172,17 +172,17 @@ if(param.email_addr){
 }
 
 if(param.aadhaar){
-    var aadhno = param.aadhaar;
-    var pattern=/^([0-9]{4})-([0-9]{4})-([0-9]{4})/;
-        if (aadhno == null || pattern.test(aadhno) == false ) {
-                 msg = "Invalid aadhar. Try again.\n";
-             } 
+    //var aadhno = param.aadhaar;
+    //var pattern=/^([0-9]{4})-([0-9]{4})-([0-9]{4})/;
+      //  if (aadhno == null || pattern.test(aadhno) == false ) {
+        //         msg = "Invalid aadhar. Try again.\n";
+        //     } 
                 
-    else{  
+    //else{  
         db.createUserIP();      
      msg = "Well done! A summary of what's stored with us will be sent to your email.";
     return msg; 
-                  }
+                  //}
 }
 }
 
