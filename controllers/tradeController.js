@@ -54,7 +54,7 @@ saveAssets = function(reqParam){
        if( mob !== 10 ){
            console.log("not validated");
           msg="Please put in 10 digits of your mobile number properly."
-          this.commonResponse(msg);
+          return res.json({fulfillmentText : msg});
        }
         else if(mob == 10 && param.mobile_no){
             console.log("mobile number validated:::::");
