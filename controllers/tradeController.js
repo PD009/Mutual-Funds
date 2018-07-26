@@ -40,7 +40,7 @@ var db = require('../modals/orderQueries');
 
 
 
-saveAssets = async function(reqParam){
+saveAssets = function(reqParam){
     var param = reqParam.body.queryResult.parameters;
     var msg = '';
     console.log("save assets intent :::::::::::::");
@@ -83,7 +83,7 @@ saveAssets = async function(reqParam){
 
      if (param.time_period) {
          console.log("time period:::::::");
-         var tst = await db.createEntry(reqParam);
+         var tst = setInterval(db.createEntry(reqParam), 1000);
          console.log("db return msg :::::", tst);
          msg = "Finished creating an asset profile for you.Let's create your liabilities profile? If yes, type liability.";
             }
