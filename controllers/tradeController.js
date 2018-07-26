@@ -56,17 +56,17 @@ saveAssets = function(reqParam){
             msg = "What is the rate of interest of the asset ?"
         }
     }
-    if(param.interest_rate){
-        msg="What is the approximate worth of your amount?";
-    }
-    if(param.amount){
-        console.log("amount:::::");
-        msg="Looks great! When was your investment date?(YYYY-MM-DD)";
-    }
-    if(param.asset_investment_date){
-        console.log("date format check------");
+    // if(param.interest_rate){
+    //     msg="What is the approximate worth of your amount?";
+    // }
+    // if(param.amount){
+    //     console.log("amount:::::");
+    //     msg="Looks great! When was your investment date?(YYYY-MM-DD)";
+    // }
+    // if(param.asset_investment_date){
+    //     console.log("date format check------");
     
-            msg="Good job. When is the date of maturity of your investment?(YYYY-MM-DD)";
+    //         msg="Good job. When is the date of maturity of your investment?(YYYY-MM-DD)";
 
         
     }
