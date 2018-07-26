@@ -9,7 +9,7 @@ var db = require('../modals/orderQueries');
     var reqAction = req.body.queryResult.action;
 
     if(reqAction === 'getIPAssets') {
-       this.saveAssets(req);
+       message = this.saveAssets(req);
     }
     if(reqAction === 'getIPLiabilities'){
         message = this.saveLiabilities(req);
@@ -34,7 +34,7 @@ var db = require('../modals/orderQueries');
     //     db.createEntry(req,res,next);
     //     db.createIP(req,res,next);
     //     var message = "Finished creating a profile for you. A OTP will be sent to your-"+ user_mobno +"Heres a summary of your assets.";
-        return res.json({fulfillmentText : 'wrong number'});
+        return res.json({fulfillmentText : message});
     // res.send(res);
 };
 
@@ -96,7 +96,7 @@ saveAssets = function(reqParam){
     console.log("returning message :::::::::::::"); 
     // return res.json({fulfillmentText : msg});
       
-    
+    return msg;
     //console.log("db entry donee :::::::::::::");    
     
     
