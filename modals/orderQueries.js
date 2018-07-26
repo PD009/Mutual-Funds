@@ -5,7 +5,7 @@ var db = require('../config/dbconnection');
 
 //Create
 
-function createEntry(req,res,next){
+async function createEntry(req,res,next){
     var reqObj = req.body.queryResult.parameters;
     console.log(reqObj);
     db.one("INSERT INTO investment_profile_assets(mobile_no, interest_rate, amount, asset_investment_date, asset_maturity_date, typeasset, time_period) values($1, $2, $3, $4, $5, $6, $7)",

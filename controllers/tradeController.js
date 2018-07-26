@@ -83,7 +83,7 @@ saveAssets = function(reqParam){
 
      if (param.time_period) {
          console.log("time period:::::::");
-         var tst = db.createEntry(reqParam);
+         var tst = await db.createEntry(reqParam);
          console.log("db return msg :::::", tst);
          msg = "Finished creating an asset profile for you.Let's create your liabilities profile? If yes, type liability.";
             }
@@ -129,7 +129,7 @@ saveLiabilities = function(reqParam){
 
      if (param.time_period) {
          console.log("time period:::::::");
-         db.createIP(reqParam);
+          db.createIP(reqParam);
          msg = "Finished creating your investment profile for you. An OTP will be sent to your registered mobile no.Let's see what your goals are? If yes,type goals.";
 };
          
@@ -143,7 +143,6 @@ saveGoals = function(reqParam){
     var param = reqParam.body.queryResult.parameters;
     reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
     if(param.goal_planned_date){
-        
         msg="What is your investment goal?";
     }
 
@@ -158,9 +157,9 @@ saveGoals = function(reqParam){
 };
 
 saveUserProfile = function(reqParam){
-    reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
-    
     var param = reqParam.body.queryResult.parameters;
+    reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
+
 if(param.username){
     var name= param.username;
     msg="Great to know you "+ name ;
