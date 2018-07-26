@@ -20,13 +20,13 @@ var db = require('../config/dbconnection');
         //          message:"record inserted",
         //          id:result})
     }).catch(function(error){
-        var msg = '';
-        if(error.code == 23505) {
-            msg = 'User exists';
+        // var msg = '';
+         if(error.code == 23505) {
+        //     msg = 'User exists';
             console.error('sql existence error');
-        }
-        console.error('createEntry SQL :::::::', error.code);
-        //console.error('createEntry SQL error: ', msg);
+         }
+         console.error('createEntry SQL :::::::', error.code);
+         console.error('createEntry SQL error: ', msg);
     });
     
 };
