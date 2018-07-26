@@ -24,26 +24,10 @@ var db = require('../modals/orderQueries');
     
     console.log("req body", req.body);
 
-    // if (req.body.queryResult.parameters.typeasset) {
-    //     type_asset = req.body.queryResult.parameters.typeasset;
-    // }
-    // if (req.body.queryResult.parameters.time_period) {
-    //     time_period = req.body.queryResult.parameters.time_period;
-    // }
 
-    //     db.createEntry(req,res,next);
-    //     db.createIP(req,res,next);
-    //     var message = "Finished creating a profile for you. A OTP will be sent to your-"+ user_mobno +"Heres a summary of your assets.";
         return res.json({fulfillmentText : message});
-    // res.send(res);
+
 };
-
-commonResponse= function(msg){
-    console.log("Response", msg);
-    return res.send({fulfillmentText : msg});
-    //res.send(res);
-
-}
 
 saveAssets = function(reqParam){
     var param = reqParam.body.queryResult.parameters;
@@ -76,22 +60,22 @@ saveAssets = function(reqParam){
 
         
     //}
-    if(param.asset_maturity_date){
-            console.log("date format check------");
+    // if(param.asset_maturity_date){
+    //         console.log("date format check------");
 
-                msg="What type of asset do you have(Gold, Real Estate, Savings, Equity)?";
+    //             msg="What type of asset do you have(Gold, Real Estate, Savings, Equity)?";
            
 
-    }
-    if(param.typeasset){
-        msg="Time period of your investment.";
-    }
+    // }
+    // if(param.typeasset){
+    //     msg="Time period of your investment.";
+    //}
 
-     if (param.time_period) {
+     if (param.time_period && param.mobile_no && interest_rate && param.amount && param.asset_investment_date && param.asset_maturity_date && param.typeasset) {
          console.log("time period:::::::");
-         var tst = db.createEntry(reqParam);
-         console.log("db return msg :::::", tst);
-         msg = "Finished creating an asset profile for you.Let's create your liabilities profile? If yes, type liability.";
+         db.createEntry(reqParam);
+         
+        // msg = "Finished creating an asset profile for you.Let's create your liabilities profile? If yes, type liability.";
             }
     console.log("returning message :::::::::::::"); 
     // return res.json({fulfillmentText : msg});
