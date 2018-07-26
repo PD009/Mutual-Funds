@@ -34,11 +34,15 @@ var db = require('../modals/orderQueries');
     //     db.createEntry(req,res,next);
     //     db.createIP(req,res,next);
     //     var message = "Finished creating a profile for you. A OTP will be sent to your-"+ user_mobno +"Heres a summary of your assets.";
-        return res.json({fulfillmentText : message});
+        //return res.json({fulfillmentText : message});
     // res.send(res);
 };
 
+commonResponse= function(msg){
+    console.log("Response");
+    return res.json({fulfillmentText : msg});
 
+}
 
 saveAssets = function(reqParam){
     var param = reqParam.body.queryResult.parameters;
@@ -50,10 +54,11 @@ saveAssets = function(reqParam){
        if( mob !== 10 ){
            console.log("not validated");
           msg="Please put in 10 digits of your mobile number properly."
+          this.commonResponse(msg);
        }
         else if(mob == 10 && param.mobile_no){
             console.log("mobile number validated:::::");
-            msg = "What is the rate of interest of the asset ?"
+            // msg = "What is the rate of interest of the asset ?"
         }
     }
     // if(param.interest_rate){
