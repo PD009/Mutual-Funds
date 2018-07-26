@@ -9,7 +9,7 @@ var db = require('../modals/orderQueries');
     var reqAction = req.body.queryResult.action;
 
     if(reqAction === 'getIPAssets') {
-        message = this.saveAssets(req);
+       this.saveAssets(req);
     }
     if(reqAction === 'getIPLiabilities'){
         message = this.saveLiabilities(req);
