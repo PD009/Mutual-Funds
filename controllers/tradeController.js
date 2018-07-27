@@ -46,30 +46,7 @@ saveAssets = function(reqParam){
             // msg = "What is the rate of interest of the asset ?"
         }
     }
-    // if(param.interest_rate){
-    //     msg="What is the approximate worth of your amount?";
-    // }
-    // if(param.amount){
-    //     console.log("amount:::::");
-    //     msg="Looks great! When was your investment date?(YYYY-MM-DD)";
-    // }
-    // if(param.asset_investment_date){
-    //     console.log("date format check------");
     
-    //         msg="Good job. When is the date of maturity of your investment?(YYYY-MM-DD)";
-
-        
-    //}
-    // if(param.asset_maturity_date){
-    //         console.log("date format check------");
-
-    //             msg="What type of asset do you have(Gold, Real Estate, Savings, Equity)?";
-           
-
-    // }
-    // if(param.typeasset){
-    //     msg="Time period of your investment.";
-    //}
 
      if (param.time_period && param.mobile_no && interest_rate && param.amount && param.asset_investment_date && param.asset_maturity_date && param.typeasset) {
          console.log("time period:::::::");
@@ -94,28 +71,28 @@ saveLiabilities = function(reqParam){
     reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no; var msg = '';
     console.log("save assets intent :::::::::::::");
     
-    if(param.interest_rate){
+    // if(param.interest_rate){
         
-        msg="What is the approximate worth of your amount?";
-    }
-    if(param.amount){
-        console.log("amount:::::");
-        msg="Looks great! When did you start your liability?(YYYY-MM-DD)";
-    }
-    if(param.liability_investment_date){
-        console.log("date format check------");
-            msg="Good job. When does your liability end?(YYYY-MM-DD)";
+    //     msg="What is the approximate worth of your amount?";
+    // }
+    // if(param.amount){
+    //     console.log("amount:::::");
+    //     msg="Looks great! When did you start your liability?(YYYY-MM-DD)";
+    // }
+    // if(param.liability_investment_date){
+    //     console.log("date format check------");
+    //         msg="Good job. When does your liability end?(YYYY-MM-DD)";
         
-    }
-    if(param.liability_maturity_date){
-            console.log("date format check------");
-                msg="What type of liability do you have (home loan, personal loan)?";
+    // }
+    // if(param.liability_maturity_date){
+    //         console.log("date format check------");
+    //             msg="What type of liability do you have (home loan, personal loan)?";
              
 
-    }
-    if(param.typeliability){
-        msg="Good job! Time period of your liabiliy?";
-    }
+    // }
+    // if(param.typeliability){
+    //     msg="Good job! Time period of your liabiliy?";
+    // }
 
      if (param.time_period) {
          console.log("time period:::::::");
@@ -132,9 +109,9 @@ console.log("db done---------------------------------");
 saveGoals = function(reqParam){
     var param = reqParam.body.queryResult.parameters;
     reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
-    if(param.goal_planned_date){
-        msg="What is your investment goal?";
-    }
+    // if(param.goal_planned_date){
+    //     msg="What is your investment goal?";
+    // }
 
     if(param.typegoals){
         msg = "Great job! It's always good to know your goals, so that you can focus better. Create your user profile next?If yes, type-user profile.";
@@ -150,11 +127,11 @@ saveUserProfile = function(reqParam){
     var param = reqParam.body.queryResult.parameters;
     reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
 
-if(param.username){
-    var name= param.username;
-    msg="Great to know you "+ name ;
+// if(param.username){
+//     var name= param.username;
+//     msg="Great to know you "+ name ;
 
-} 
+// } 
 
 if(param.email_addr){
     var email = param.email_addr;
@@ -166,23 +143,17 @@ if(param.email_addr){
                 
     else{        
         
-        msg="successfully done.Enter aadhar"
+        msg="successfully done.Enter your aadhar number."
         }
 
 }
 
 if(param.aadhaar){
-    //var aadhno = param.aadhaar;
-    //var pattern=/^([0-9]{4})-([0-9]{4})-([0-9]{4})/;
-      //  if (aadhno == null || pattern.test(aadhno) == false ) {
-        //         msg = "Invalid aadhar. Try again.\n";
-        //     } 
-                
-    //else{  
+  
         db.createUserIP();      
      msg = "Well done! A summary of what's stored with us will be sent to your email.";
     return msg; 
-                  //}
+
 }
 }
 
