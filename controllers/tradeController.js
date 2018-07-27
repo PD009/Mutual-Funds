@@ -29,7 +29,7 @@ var db = require('../modals/orderQueries');
 
 };
 
-saveAssets = function(reqParam){
+saveAssets = function(reqParam){ //takes in the asset parameters
     var param = reqParam.body.queryResult.parameters;
     var msg = '';
     console.log("save assets intent :::::::::::::");
@@ -71,28 +71,6 @@ saveLiabilities = function(reqParam){
     reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no; var msg = '';
     console.log("save assets intent :::::::::::::");
     
-    // if(param.interest_rate){
-        
-    //     msg="What is the approximate worth of your amount?";
-    // }
-    // if(param.amount){
-    //     console.log("amount:::::");
-    //     msg="Looks great! When did you start your liability?(YYYY-MM-DD)";
-    // }
-    // if(param.liability_investment_date){
-    //     console.log("date format check------");
-    //         msg="Good job. When does your liability end?(YYYY-MM-DD)";
-        
-    // }
-    // if(param.liability_maturity_date){
-    //         console.log("date format check------");
-    //             msg="What type of liability do you have (home loan, personal loan)?";
-             
-
-    // }
-    // if(param.typeliability){
-    //     msg="Good job! Time period of your liabiliy?";
-    // }
 
      if (param.time_period) {
          console.log("time period:::::::");

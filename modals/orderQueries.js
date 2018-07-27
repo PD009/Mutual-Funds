@@ -5,7 +5,7 @@ var db = require('../config/dbconnection');
 
 //Create
 
- function createEntry(req,res,next){
+ function createEntry(req,res,next){  //Query to insert into the investment_profile_asset table
     var reqObj = req.body.queryResult.parameters;
     console.log(reqObj);
     db.none("INSERT INTO investment_profile_assets(mobile_no, interest_rate, amount, asset_investment_date, asset_maturity_date, typeasset, time_period) values($1, $2, $3, $4, $5, $6, $7)",
@@ -20,13 +20,12 @@ var db = require('../config/dbconnection');
         //          message:"record inserted",
         //          id:result})
     }).catch(function(error){
-        // var msg = '';
+         var msg = '';
          if(error.code == 23505) {
-        //     msg = 'User exists';
-            console.error('sql existence error');
+             msg = 'User exists';
+            console.error('sql existence error',msg);
          }
-         console.error('createEntry SQL :::::::', error.code);
-        // console.error('createEntry SQL error: ', msg);
+         
     });
     
 };
