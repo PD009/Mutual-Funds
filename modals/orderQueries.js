@@ -30,7 +30,7 @@ var db = require('../config/dbconnection');
     
 };
 
-    function createIP(req,res,next){
+    function createIP(req,res,next){ //Query to insert into the investment_profile_liability table
         var reqObj = req.body.queryResult.parameters;
         console.log(reqObj);
         db.none('INSERT INTO investment_profile_liabilities(mobile_no, interest_rate, amount, liability_investment_date, liability_maturity_date, typeliability, time_period) values($1, $2, $3, $4, $5, $6, $7)',
@@ -51,7 +51,7 @@ var db = require('../config/dbconnection');
 
     };
 
-   function createIP_goals(req,res,next) {
+   function createIP_goals(req,res,next) {//Query to insert into the investment_goal table
        var reqObj = req.body.queryResult.parameters;
        console.log(reqObj);
        db.none('INSERT INTO investment_goal(mobile_no, goal_planned_date, typegoals) values($1, $2, $3)',
@@ -73,7 +73,7 @@ var db = require('../config/dbconnection');
 
 };
 
-function createUserIP(req,res,next) {
+function createUserIP(req,res,next) {//Query to insert into the user_profile table
     var reqObj = req.body.queryResult.parameters;
     console.log(reqObj);
     db.none('INSERT INTO user_profile(mobile_no, username, email_addr, aadhaar) values($1, $2, $3, $4 )',

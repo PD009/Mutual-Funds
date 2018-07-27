@@ -30,7 +30,7 @@ var db = require('../modals/orderQueries');
 };
 
 saveAssets = function(reqParam){ //takes in the asset parameters
-    var param = reqParam.body.queryResult.parameters;
+    var param = reqParam.body.queryResult.parameters;//validates mobile number
     var msg = '';
     console.log("save assets intent :::::::::::::");
     if (param.mobile_no) {
@@ -39,57 +39,54 @@ saveAssets = function(reqParam){ //takes in the asset parameters
        if( mob !== 10 ){
            console.log("not validated");
           msg="Please put in 10 digits of your mobile number properly.";
-        //   this.commonResponse(msg);
+    
        }
         else if(mob == 10 && param.mobile_no){
             console.log("mobile number validated:::::");
-            // msg = "What is the rate of interest of the asset ?"
+            
         }
     }
     
 
-     if (param.time_period && param.mobile_no && interest_rate && param.amount && param.asset_investment_date && param.asset_maturity_date && param.typeasset) {
+     if (param.time_period && param.mobile_no && interest_rate && param.amount && param.asset_investment_date && param.asset_maturity_date && param.typeasset) {//lets the data go inside the db after the last parameter value
          console.log("time period:::::::");
          db.createEntry(reqParam);
          
-        // msg = "Finished creating an asset profile for you.Let's create your liabilities profile? If yes, type liability.";
+        
             }
-    console.log("returning message :::::::::::::"); 
-    // return res.json({fulfillmentText : msg});
+   
       
     return msg;
-    //console.log("db entry donee :::::::::::::");    
+    
     
     
     
        
 };
 
-saveLiabilities = function(reqParam){
+saveLiabilities = function(reqParam){//saves the liabilities of a user
     var param = reqParam.body.queryResult.parameters;
     var user_mobno=reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
     reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no; var msg = '';
-    console.log("save assets intent :::::::::::::");
+    
     
 
      if (param.time_period) {
-         console.log("time period:::::::");
+         console.log("time period:::::::");//after the last value is entered by the webhook is called
           db.createIP(reqParam);
          msg = "Finished creating your investment profile for you. An OTP will be sent to your registered mobile no.Let's see what your goals are? If yes,type goals.";
 };
          
-console.log("db done---------------------------------"); 
+
     return msg;
 
 }
     
 
-saveGoals = function(reqParam){
+saveGoals = function(reqParam){//investment goals of a user is saved
     var param = reqParam.body.queryResult.parameters;
     reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
-    // if(param.goal_planned_date){
-    //     msg="What is your investment goal?";
-    // }
+    
 
     if(param.typegoals){
         msg = "Great job! It's always good to know your goals, so that you can focus better. Create your user profile next?If yes, type-user profile.";
@@ -101,17 +98,12 @@ saveGoals = function(reqParam){
     return msg; 
 };
 
-saveUserProfile = function(reqParam){
+saveUserProfile = function(reqParam){//saves the  profile of the  user
     var param = reqParam.body.queryResult.parameters;
     reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
 
-//  if(param.username){
-//      var name= param.username;
-//      msg="Great to know you "+ name ;
 
-//  } 
-
-if(param.email_addr){
+if(param.email_addr){ //email address validation
     var email = param.email_addr;
     var pattern=/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
         if (email == null || pattern.test(email) == false ) {
@@ -126,7 +118,7 @@ if(param.email_addr){
 
 }
 
-if(param.aadhaar){
+if(param.aadhaar){//last entity of the aadhaar
   
         db.createUserIP();      
      msg = "Well done! A summary of what's stored with us will be sent to your email.";
