@@ -105,11 +105,11 @@ saveUserProfile = function(reqParam){
     var param = reqParam.body.queryResult.parameters;
     reqParam.body.queryResult.parameters.mobile_no = reqParam.body.queryResult.outputContexts[1].parameters.mobile_no;
 
- if(param.username){
-     var name= param.username;
-     msg="Great to know you "+ name ;
+//  if(param.username){
+//      var name= param.username;
+//      msg="Great to know you "+ name ;
 
- } 
+//  } 
 
 if(param.email_addr){
     var email = param.email_addr;
